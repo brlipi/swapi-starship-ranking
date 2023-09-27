@@ -3,8 +3,15 @@ import { StarshipsFetcher } from "../StarshipsFetcher";
 import { DistanceCalculator } from "../DistanceCalculator";
 import { StarshipInfoFormatter } from "../StarshipInfoFormatter";
 
-interface StarshipResponse {
-    starships: Starship[];
+type StarshipResponse = {
+    name: string;
+    consumables: string;
+    MGLT: string;
+    number_of_stops: string;
+    url: string;
+}
+interface StarshipArrayResponse {
+    starships: StarshipResponse[];
 }
 
 @Route("/")
@@ -21,7 +28,7 @@ export default class StarshipsController {
         this.starshipInfoFormatter = new StarshipInfoFormatter();
     }
     @Get('/:distance')
-    public async getStarshipsNumberOfStops(distance: string): Promise<StarshipResponse> {
+    public async getStarshipsNumberOfStops(distance: string): Promise<StarshipArrayResponse> {
         if (distance) {
             this.starships = await this.starshipsFetcher.getAllStarships();
             for (const starship of this.starships) {

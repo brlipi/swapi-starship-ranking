@@ -6,12 +6,44 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"Placeholder": {
+			"StarshipResponse": {
 				"properties": {
-					"ships": {}
+					"url": {
+						"type": "string"
+					},
+					"number_of_stops": {
+						"type": "string"
+					},
+					"MGLT": {
+						"type": "string"
+					},
+					"consumables": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					}
 				},
 				"required": [
-					"ships"
+					"url",
+					"number_of_stops",
+					"MGLT",
+					"consumables",
+					"name"
+				],
+				"type": "object"
+			},
+			"StarshipArrayResponse": {
+				"properties": {
+					"starships": {
+						"items": {
+							"$ref": "#/components/schemas/StarshipResponse"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"starships"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -41,7 +73,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/Placeholder"
+									"$ref": "#/components/schemas/StarshipArrayResponse"
 								}
 							}
 						}

@@ -1,0 +1,21 @@
+{
+  "name": "swapi-starship-ranking",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "author": "Breno Lipi <brenorlipi@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/app.js",
+    "dev": "nodemon ./src/app.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.7.0",
+    "axios": "^1.5.1",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
+  }
+}

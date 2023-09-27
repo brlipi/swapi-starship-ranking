@@ -1,5 +1,5 @@
 export class DistanceCalculator {
-    public calculateMaxTravelDistance(distance: number, starship: any) {
+    public calculateMaxTravelDistance(distance: number, starship: Starship) {
         let timeInHours: number = 0;
         let value = starship.consumables.match(/\d+/);
         if (value === null) {

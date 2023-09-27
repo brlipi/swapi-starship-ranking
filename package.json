@@ -5,9 +5,12 @@
   "author": "Breno Lipi <brenorlipi@hotmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node dist/index.js",
+    "predev": "yarn swagger",
+    "prebuild": "yarn swagger",
     "build": "tsc",
-    "start": "node ./dist/app.js",
-    "dev": "nodemon ./src/app.ts"
+    "dev": "nodemon ./src/app.ts",
+    "swagger": "tsoa spec"
   },
   "dependencies": {
     "@types/morgan": "^1.9.6",
@@ -15,10 +18,14 @@
     "axios": "^1.5.1",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
+    "swagger-ui-express": "^5.0.0",
+    "tsoa": "^5.1.1",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.18",
+    "@types/swagger-ui-express": "^4.1.4",
+    "concurrently": "^8.2.1",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1"
   }

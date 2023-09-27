@@ -5,7 +5,7 @@
   "author": "Breno Lipi <brenorlipi@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/app.js",
     "predev": "yarn swagger",
     "prebuild": "yarn swagger",
     "build": "tsc",

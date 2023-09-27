@@ -1,20 +1,17 @@
-import { StarshipsFetcher } from "./StarshipsFetcher";
-import { DistanceCalculator } from "./DistanceCalculator";
+import express, { Application, Request, Response } from "express";
+import morgan from "morgan";
+import router from "./Routes";
 
-const starshipsFetcher = new StarshipsFetcher();
-const distanceCalculator = new DistanceCalculator();
+const port = process.env.PORT || 8000;
 
-let distance = 1000000;
+const app: Application = express();
 
-(async () => {
-    try {
-        const starships = await starshipsFetcher.getAllStarships();
-        for (const starship of starships) {
-            distanceCalculator.calculateMaxTravelDistance(distance, starship);
-        }
-        console.log(starships);
-    } catch (error) {
-        console.log(error)
-        throw(error);
-    }
-})();
+app.use(morgan('common'));
+app.use(express.static('public'));
+
+app.use(router);
+
+
+app.listen(port, () => {
+    console.log(`Server is listening at http://localhost:${port}`);
+});
